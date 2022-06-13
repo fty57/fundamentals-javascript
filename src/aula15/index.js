@@ -17,3 +17,8 @@ console.log(100 / 0);
 // console.log(Math.max(1,2,3,4,5,6,-10,1500, 9 , 8 ))
 // console.log(Math.min(1,2,3,4,5,6,-10,1500, 9 , 8 ))
 // const aleatorio = Math.round(Math.random() * (10 - 5) + 5);
+console.log(Math.SQRT1_2);
+console.log(Math.SQRT2);
+console.log(Math.LN10);
+console.log(Math.LN2);
+console.log(Math.PI);
