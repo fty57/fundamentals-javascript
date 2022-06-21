@@ -59,7 +59,12 @@ form button:hover {
   background: var(--primary-color-darker);
 }
 
-.paragrafo-resultado {
+.paragrafo-sucesso {
   background: rgb(109, 255, 182);
+  padding: 10px 20px;
+}
+
+.paragrafo-erro {
+  background: rgb(255, 150, 150);
   padding: 10px 20px;
 }
