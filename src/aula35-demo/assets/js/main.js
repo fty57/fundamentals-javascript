@@ -10,6 +10,15 @@ const elementos = [
 console.log(subContainer);
 
 for (let i = 0; i < elementos.length; i++) {
-  // let {tag, texto} = elementos[i];
+  let { tag, texto } = elementos[i];
+  let tagCriada = document.createElement(tag);
+  let textoCriado = document.createTextNode(texto);
+
   subContainer.innerHTML += `<${elementos[i].tag}>${elementos[i].texto}</${elementos[i].tag}>`;
+
+  tagCriada.appendChild(textoCriado);
+  subContainer.appendChild(tagCriada);
 }
+
+// DOM, refere-se ao navegador e a uma interface de objetos que permitem manipular o elemento dentro da página HTML
+// Árvore do DOM, um referindo o outro document > html > header e body > h1
