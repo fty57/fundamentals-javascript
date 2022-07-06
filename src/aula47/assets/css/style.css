@@ -56,9 +56,13 @@ form button {
 }
 
 form button:hover {
-     background: var(--primary-color-darker);
+  background: var(--primary-color-darker);
 }
 
-.clock{
+.clock {
   font-size: 3em;
+}
+
+.stop {
+  color: red;
 }

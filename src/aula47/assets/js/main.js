@@ -1,34 +1,46 @@
-// new Date(0);
+function clock() {
+  const clock = document.querySelector(".clock");
+  const start = document.querySelector(".start");
+  const stop = document.querySelector(".stop");
+  const defaultClock = document.querySelector(".default");
+  let seconds = 0;
+  let timer;
 
-const clock = document.querySelector(".clock");
-const start = document.querySelector(".start");
-const stop = document.querySelector(".stop");
-const defaultClock = document.querySelector(".default");
-let seconds = 0;
+  document.addEventListener("click", function (e) {
+    const elem = e.target;
+    if (elem.classList.contains("default")) {
+      clearInterval(timer);
+      clock.innerHTML = "00:00:00";
+      clock.classList.remove("stop");
+      seconds = 0;
+    }
 
-start.addEventListener("click", function (event) {
-  startClock();
-});
+    if (elem.classList.contains("start")) {
+      clock.classList.remove("stop");
+      clearInterval(timer);
+      startClock();
+    }
 
-stop.addEventListener("click", function (event) {
-  alert("Cliquei no pausar");
-});
-
-defaultClock.addEventListener("click", function (event) {
-  alert("Cliquei no default");
-});
-
-function getTimeFromSeconds(seconds) {
-  const data = new Date(seconds * 1000);
-  return data.toLocaleTimeString("pt-BR", {
-    hour12: false,
-    timeZone: "GMT",
+    if (elem.classList.contains("stop")) {
+      clearInterval(timer);
+      clock.classList.add("stop");
+    }
   });
+
+  function getTimeFromSeconds(seconds) {
+    const data = new Date(seconds * 1000);
+    return data.toLocaleTimeString("pt-BR", {
+      hour12: false,
+      timeZone: "GMT",
+    });
+  }
+
+  function startClock() {
+    timer = setInterval(function () {
+      seconds++;
+      clock.innerHTML = getTimeFromSeconds(seconds);
+    }, 1000);
+  }
 }
 
-function startClock() {
-  const timer = setInterval(function () {
-    seconds++;
-    clock.innerHTML = getTimeFromSeconds(seconds);
-  }, 1000);
-}
+clock();
